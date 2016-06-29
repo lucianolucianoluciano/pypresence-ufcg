@@ -21,7 +21,7 @@ def filtro(membros, lista):
     for i in membros:
         if "presence" not in i or i["presence"] != "active" or i["name"] not in MONITORES:
             continue
-        usuarios_online.append(i["name"])
+        lista.append(i["name"])
 # Loga um erro em arquivo
 def log_error(erro):
     erros = open("erros.birl", "a+")
@@ -54,5 +54,4 @@ while True:
         response.close()
         sleep(INTERVALO)
     except Exception as ex:
-        print "oi"
         log_error(str(ex.args))
